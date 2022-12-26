@@ -1,0 +1,15 @@
+.cart-dropdown-container{
+    display: none;
+    position: absolute;
+    padding: 5px;
+    border:1px solid;
+    border-color: gray;
+    background-color: white;
+    border-radius: 4px;
+    top: 40px;
+    right: 1%;
+    z-index: 5;
+    height: 900%;
+    width: 800%;
+    overflow-y: scroll;
+  }
