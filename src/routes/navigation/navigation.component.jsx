@@ -1,14 +1,12 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import { ReactComponent as BonsaiLogo } from "../../assets/bonsai.svg";
-import { Fragment, useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
 import "./navigation.styles.scss";
-import { UserContext } from "../../contexts/user.context";
-import { signOutUser } from "../../firebase/firebase.utils";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 const Navigation = () => {
-    const authUrl = window.location.protocol + "//" + window.location.host +"/auth";
-    const { currentUser } = useContext(UserContext);
+    const authUrl = window.location.protocol + "//" + window.location.host + "/auth";
+    const currentUser = useSelector(selectCurrentUser);
     const handleOnClickSignOut = async () => {
         await signOutUser();
         window.location.replace(authUrl);
@@ -33,9 +31,9 @@ const Navigation = () => {
                         </Link>
                     }
                     <CartIcon />
-                </div> 
+                </div>
             </div>
-            <Outlet/>
+            <Outlet />
         </>
     );
 }

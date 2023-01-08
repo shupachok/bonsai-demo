@@ -4,23 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { UserProvider } from './contexts/user.context';
-import { CategoriesContextProvider, ProductsContextProvider } from './contexts/categories.context';
-import { CartContext, CartContextProvider } from './contexts/cart.context';
 import ScrollTop from './routes/scrolltop/scrolltop.component';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
   <BrowserRouter>
-    <UserProvider>
-      <CategoriesContextProvider>
-        <CartContextProvider>
           <ScrollTop />
           <App />
-        </CartContextProvider>
-      </CategoriesContextProvider>
-    </UserProvider>
   </BrowserRouter>
+  </Provider>
 );
 // root.render(
 //   <React.StrictMode>

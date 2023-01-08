@@ -1,14 +1,14 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component"
-import { signInWithGooglePopup, getAuthWithEmailandPassword } from "../../firebase/firebase.utils";
 import './sign-in.component.scss'
 import Button from "../button/button.component";
+import { signInWithGooglePopup, getAuthWithEmailandPassword } from "../../utils/firebase/firebase.utils";
 const defaultFormSignin = {
     email: '',
     password: ''
 }
 const SignIn = () => {
-    const shopUrl = window.location.protocol + "//" + window.location.host +"/shop";
+    const shopUrl = window.location.protocol + "//" + window.location.host + "/shop";
     const [formSignIn, setFormSignIn] = useState(defaultFormSignin);
     const { email, password } = formSignIn;
     const loginGoogleUser = async () => {

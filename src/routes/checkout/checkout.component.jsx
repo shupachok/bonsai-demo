@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import { CartContext } from '../../contexts/cart.context';
+import { selectCartList } from '../../store/cart/cart.selector';
 import './checkout.styles.scss';
 const Checkout = () => {
-    const { dropDownItem } = useContext(CartContext);
+    const dropDownItem = useSelector(selectCartList);
     const totalPrice = dropDownItem.reduce((total, cur) => total + (cur.qty * cur.price), 0);
     return (
         <div className='check-out-container'>
